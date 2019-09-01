@@ -1,13 +1,82 @@
-<p>{{ texts }}</p>
-<!-- <p>{{ img_url }}</p> -->  
-<!-- <canvas id="capture_image"></canvas> -->
-<!-- <img id="output" src="{{ img_url }}"> -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <title>result</title>
+</head>
 
-<script type="text/javascript">
-  // var canvas_capture_image = document.getElementById('capture_image');
-  // var cci = canvas_capture_image.getContext('2d');
-  // var va = {{ texts }}
-  // canvas_capture_image.width  = va.videoWidth;
-  // canvas_capture_image.height = va.videoHeight;
-  // cci.drawImage(va, 0, 0); 
-</script>
+<body>
+  <p>{{results}}</p>
+  <div class="main">
+    <div class="graph">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+      <canvas id="myChart"  height="350" width="450"></canvas>
+      <script>
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+    </script>
+      <div class="list">
+        <div class="set">
+          <i class="fas fa-10x fa-mosque" style="color:{{color[0]}};"></i>
+          {% for word in words[0] %}
+          <p>{{word}}</p>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="list">
+        <div class="set">
+          <i class="fas fa-10x fa-calculator" style="color:{{color[1]}};"></i>
+          {% for word in words[1] %}
+          <p>{{word}}</p>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="list">
+        <div class="set">
+          <i class="fas fa-10x fa-carrot" style="color:{{color[2]}};"></i>
+          {% for word in words[2] %}
+          <p>{{word}}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -16,6 +16,46 @@ UPLOAD_FOLDER = './uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg','JPG', 'gif'])
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+def judge_arabia(string):
+    taboo_list = ["豚","酒","アルコール","みりん","醤油",
+                  "ポーク","ラム","ゼラチン","ワイン","ウイスキー","ラード"]
+    j = 0
+    filtered_words = []
+    for i, word in enumerate(taboo_list):
+        if word in string:
+            j += 1
+            filtered_words.append(taboo_list[i])
+    if j>=1:
+        return "red", filtered_words
+    else:
+        return "black", filtered_words
+
+def judge_india(string):
+    taboo_list = ["牛","ビーフ"]
+    j = 0
+    filtered_words = []
+    for i, word in enumerate(taboo_list):
+        if word in string:
+            j += 1
+            filtered_words.append(taboo_list[i])
+    if j>=1:
+        return "red", filtered_words
+    else:
+        return "black", filtered_words
+
+def judge_vege(string):
+    taboo_list = ["肉","ハム","ソーセージ","ベーコン","ミート","動物","海老"]
+    j = 0
+    filtered_words = []
+    for i, word in enumerate(taboo_list):
+        if word in string:
+            j += 1
+            filtered_words.append(taboo_list[i])
+    if j>=1:
+        return "red", filtered_words
+    else:
+        return "black", filtered_words
+
 
 @app.route('/')
 def index():
@@ -29,8 +69,13 @@ def send():
         img_url = img_url_1.split(",")[1]
         texts =  google_cva.main(img_url)
         #texts = "Hello!"
-        return render_template('result.html', img_url=img_url_1, texts=texts)
-        
+        arabia_color, arabia_words = judge_arabia(texts)
+        india_color, india_words = judge_india(texts)
+        vege_color, vege_words = judge_vege(texts)
+        results_color = [arabia_color, india_color, vege_color]
+        words = [arabia_words, india_words, vege_words]
+        return render_template('result.html', color=results_color, words=words, results=texts)
+
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):

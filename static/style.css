@@ -1,0 +1,24 @@
+.list {
+  float:left;
+  width:33%;
+  text-align: center;
+}
+
+.lists{
+  height: 40%;
+  background-color: red
+}
+
+.graph {
+  height: 60%;
+  background-color: aqua
+}
+.fas {
+  size: 50em
+}
+
+.main{
+  height: 100vh;
+  width: 100%;
+  background-color:green
+}
