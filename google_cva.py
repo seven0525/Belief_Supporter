@@ -13,7 +13,8 @@ def pil_image_to_base64(pil_image):
 
 #PILで開いた画像をCloud Vision APIに投げます
 def recognize_image(pil_image):
-        str_encode_file = pil_image_to_base64(pil_image)
+        #str_encode_file = pil_image_to_base64(pil_image)
+        str_encode_file = pil_image
         str_url = "https://vision.googleapis.com/v1/images:annotate?key="
         str_api_key = "YOURS"
         str_headers = {'Content-Type': 'application/json'}
@@ -65,6 +66,6 @@ def get_fullTextAnnotation(json_data):
         return None
 
 def main(img_url):
-    image_path = img_url
-    pil_image = Image.open(image_path)
-    return recognize_image(pil_image)
+    # image_path = img_url
+    #pil_image = Image.open(image_path)
+    return recognize_image(img_url)

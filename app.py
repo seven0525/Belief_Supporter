@@ -10,7 +10,6 @@ from io import BytesIO
 from PIL import Image
 import google_cva as google_cva
 
-
 app = Flask(__name__)
 
 UPLOAD_FOLDER = './uploads'
@@ -18,30 +17,20 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg','JPG', 'gif'])
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
-
-def allowed_file(filename):
-    return '.' in filename and \
-        filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
-
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('camera.html')
 
 
-@app.route('/send', methods=['GET', 'POST'])
+@app.route('/post', methods=['GET', 'POST'])
 def send():
     if request.method == 'POST':
-        img_file = request.files['img_file']
-        if img_file and allowed_file(img_file.filename):
-            filename = secure_filename(img_file.filename)
-            img_file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            img_url = './uploads/' + filename
-            texts =  google_cva.main(img_url)
-            return render_template('result.html', texts=texts)
-        else:
-            return ''' <p>許可されていない拡張子です</p> '''
-    else:
-        return redirect(url_for('index'))
+        img_url_1 = request.form['image']
+        img_url = img_url_1.split(",")[1]
+        texts =  google_cva.main(img_url)
+        #texts = "Hello!"
+        return render_template('result.html', img_url=img_url_1, texts=texts)
+        
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
