@@ -9,11 +9,12 @@ import requests
 from io import BytesIO
 from PIL import Image
 import google_cva as google_cva
+import extract_nutrition as extract_nutrition
 
 app = Flask(__name__)
 
 UPLOAD_FOLDER = './uploads'
-ALLOWED_EXTENSIONS = set(['png', 'jpg','JPG', 'gif'])
+ALLOWED_EXTENSIONS = set(['png', 'jpg','JPG'])
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def judge_arabia(string):
@@ -57,6 +58,7 @@ def judge_vege(string):
         return "black", filtered_words
 
 
+
 @app.route('/')
 def index():
     return render_template('camera.html')
@@ -68,13 +70,16 @@ def send():
         img_url_1 = request.form['image']
         img_url = img_url_1.split(",")[1]
         texts =  google_cva.main(img_url)
+        print(texts)
+        print(type(texts))
         #texts = "Hello!"
         arabia_color, arabia_words = judge_arabia(texts)
         india_color, india_words = judge_india(texts)
         vege_color, vege_words = judge_vege(texts)
         results_color = [arabia_color, india_color, vege_color]
         words = [arabia_words, india_words, vege_words]
-        return render_template('result.html', color=results_color, words=words, results=texts)
+        columns, values = extract_nutrition.main(texts)
+        return render_template('result.html', color=results_color, words=words, results=texts, columns=columns, values=values)
 
 
 @app.route('/uploads/<filename>')

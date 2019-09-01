@@ -9,6 +9,8 @@
 
 <body>
   <p>{{results}}</p>
+  <p>{{ columns }}</p>
+  <p>{{ values }}</p>
   <div class="main">
     <div class="graph">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
@@ -18,7 +20,7 @@
       var myChart = new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ["1","2","3","4","5","6"],
             datasets: [{
                 label: '# of Votes',
                 data: [12, 19, 3, 5, 2, 3],

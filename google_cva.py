@@ -27,7 +27,7 @@ def recognize_image(pil_image):
                     'features': [
                         {
                             'type': "TEXT_DETECTION",
-                            'maxResults': 10
+                            'maxResults': 100
                         }
                     ]
                 }
@@ -51,7 +51,6 @@ def recognize_image(pil_image):
                 json.dump(obj_response.json(), outfile)
                 text = get_fullTextAnnotation(obj_response.text)
             return text
-
         else:
             return "error"
 
