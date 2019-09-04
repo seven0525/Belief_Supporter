@@ -16,14 +16,16 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
       <canvas id="myChart"  height="350" width="450"></canvas>
       <script>
+      var myColumns = ["{{ columns[0] }}", "{{ columns[1] }}", "{{columns[2]}}", "{{ columns[3] }}", "{{ columns[4] }}"]
+      var myValues = ["{{ values[0]}}","{{values[1]}}","{{values[2]}}","{{values[3]}}","{{values[4]}}"]
       var ctx = document.getElementById('myChart').getContext('2d');
       var myChart = new Chart(ctx, {
-        type: 'pie',
+        type: 'doughnut',
         data: {
-            labels: ["1","2","3","4","5","6"],
+            labels: myColumns,
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                data: myValues,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -39,20 +41,48 @@
                     'rgba(75, 192, 192, 1)',
                     'rgba(153, 102, 255, 1)',
                     'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
+                ]
             }]
         },
         options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
+          legend: {
+            display: false
+          },
+          scales: {
+              yAxes: [{
+                display: false
+              }],
+              xAxes: [{
+                display: false
+              }]
+          },
+          elements: {
+            center: {
+              text: 'Desktop'
             }
+          }
         }
     });
+
+    Chart.plugins.register({
+    afterDatasetsDraw: function(chartInstance, easing) {
+        if (chartInstance.config.type == "doughnut") {
+            var ctx = chartInstance.chart.ctx;
+            var sum = "Nutrition"
+            ctx.fillStyle = 'black';
+            var fontSize = 60;
+            var fontStyle = 'normal';
+            var fontFamily = "Helvetica Neue";
+            ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
+
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(sum.toString(), 300, 290);
+        }
+    }
+});
+
+
     </script>
       <div class="list">
         <div class="set">

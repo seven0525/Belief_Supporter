@@ -2,23 +2,29 @@
   float:left;
   width:33%;
   text-align: center;
+  font-size: large;
+  font-weight: bold
 }
-
 .lists{
-  height: 40%;
-  background-color: red
+  height: 50%;
+  padding-top: 50%;
+  vertical-align: middle
 }
-
 .graph {
-  height: 60%;
-  background-color: aqua
+  height: 50%
 }
 .fas {
   size: 50em
 }
-
 .main{
   height: 100vh;
-  width: 100%;
-  background-color:green
+  width: 100%
+}
+body {
+  background-image: url("intersection.png")
+}
+.header {
+  text-align: center;
+  font-size:xx-large;
+  font-weight: bolder
 }
