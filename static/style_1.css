@@ -8,8 +8,8 @@
   }
   .button:hover {
     background-color: #fff;
-    border-color: #59b1eb;
-    color: #59b1eb;
+    border-color: greenyellow;
+    color: greenyellow;
   }
   .button::before,
   .button::after {
@@ -27,17 +27,17 @@
   .button:hover::before,
   .button:hover::after {
     width: 0;
-    background-color: #59b1eb;
+    background-color: greenyellow;
   }
 
   h1 {
     text-align: center;
     margin: 0;
     padding: 0.6em 2em 0.4em;
-    background-color: greenyellow;
+    background-color: green;
     color: #ffffff;
     font-weight: normal;
-    font-size: 3em;
+    font-size: 4em;
     border-bottom: 2px solid #000;
   }
 

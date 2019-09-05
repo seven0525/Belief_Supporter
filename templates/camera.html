@@ -6,8 +6,8 @@
 <body>
 <h1>Belief Suppoter</h1>
 <video id="myVideo" width=100% autoplay playsinline="true" ></video>
-<button class="button" onclick="copyFrame()" style="height:10%; width: 100%; font-size:3em; background-color: #fff;border-color: #59b1eb;
-color: #59b1eb;">Capture</button>
+<button class="button" onclick="copyFrame()" style="height:10%; width: 100%; font-size:3em; background-color: #fff;border-color: #33FF00;
+color: green;">Capture</button>
 <canvas id="capture_image" style="display:none"></canvas>
 
 <script type="text/javascript">
@@ -33,17 +33,6 @@ navigator.mediaDevices.getUserMedia(constraints)
             window.alert(err.name + ': ' + err.message);
         });
 
-
-// var localStream = null;
-// navigator.getUserMedia({video: true, audio: false}, 
-//     function(stream) { // for success case
-//     console.log(stream);
-//     video.srcObject = stream;
-//     },
-//     function(err) { // for error case
-//     console.log(err);
-//     }
-// );
 function copyFrame() {
     var canvas_capture_image = document.getElementById('capture_image');
     var cci = canvas_capture_image.getContext('2d');
