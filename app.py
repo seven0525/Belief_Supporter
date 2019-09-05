@@ -20,10 +20,10 @@ def judge_arabia(string):
                   "ポーク","ラム","ゼラチン","ワイン","ウイスキー","ラード"]
     j = 0
     filtered_words = []
-    for i, word in enumerate(taboo_list):
+    for word in taboo_list:
         if word in string:
             j += 1
-            filtered_words.append(taboo_list[i])
+            filtered_words.append(word)
     if j>=1:
         return "red", filtered_words
     else:
@@ -33,10 +33,10 @@ def judge_india(string):
     taboo_list = ["牛","ビーフ"]
     j = 0
     filtered_words = []
-    for i, word in enumerate(taboo_list):
+    for i, word in taboo_list:
         if word in string:
             j += 1
-            filtered_words.append(taboo_list[i])
+            filtered_words.append(word)
     if j>=1:
         return "red", filtered_words
     else:
@@ -46,10 +46,10 @@ def judge_vege(string):
     taboo_list = ["肉","ハム","ソーセージ","ベーコン","ミート","動物","海老"]
     j = 0
     filtered_words = []
-    for i, word in enumerate(taboo_list):
+    for i, word in taboo_list:
         if word in string:
             j += 1
-            filtered_words.append(taboo_list[i])
+            filtered_words.append(word)
     if j>=1:
         return "red", filtered_words
     else:
@@ -69,12 +69,13 @@ def send():
         img_url = img_url_1.split(",")[1]
         texts =  google_cva.main(img_url)
         print(texts)
-        arabia_color, arabia_words = judge_arabia(texts)
-        india_color, india_words = judge_india(texts)
-        vege_color, vege_words = judge_vege(texts)
+        edited_text = extract_nutrition.edit(texts)
+        arabia_color, arabia_words = judge_arabia(edited_text)
+        india_color, india_words = judge_india(edited_text)
+        vege_color, vege_words = judge_vege(edited_text)
         results_color = [arabia_color, india_color, vege_color]
         words = [arabia_words, india_words, vege_words]
-        columns, values = extract_nutrition.main(texts)
+        columns, values = extract_nutrition.main(edited_text)
         # columns = ["2","2","2","2"]
         # values = [1,2,5,20]
         return render_template('result.html', color=results_color, words=words, results=texts, columns=columns, values=values)
