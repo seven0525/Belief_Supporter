@@ -19,7 +19,7 @@ def main(text_r):
     columns = []
     values = []
     # 熱量以降のみを対象とする
-    text_n = text_r.split("熱量")[1]
+    text_n = text_r.split("cal")[1]
     print(text_n)
 
     if "蛋白質" in text_n:
