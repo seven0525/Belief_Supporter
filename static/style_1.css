@@ -29,3 +29,23 @@
     width: 0;
     background-color: #59b1eb;
   }
+
+  h1 {
+    text-align: center;
+    margin: 0;
+    padding: 0.6em 2em 0.4em;
+    background-color: greenyellow;
+    color: #ffffff;
+    font-weight: normal;
+    font-size: 1.75em;
+    border-bottom: 2px solid #000;
+  }
+
+  body {
+    background-color: #fff;
+    color: #000;
+    font-size: 0.9em;
+    font-family: sans-serif,helvetica;
+    margin: 0;
+    padding: 0;
+  }

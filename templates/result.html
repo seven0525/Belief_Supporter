@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="./static/style.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-  <title>result</title>
-</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+	<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="./static/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+	</head>
 
-<body>
-  <!-- <p>{{results}}</p>
-  <p>{{ columns }}</p>
-  <p>{{ values }}</p> -->
+	<body>
+	<h1>Belief Suppoter</h1>
+
+		<div class="content">
+			<div class="content-columns">
+			</div>
+    </div>
+  
   <div class="main">
     <div class="graph">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
@@ -85,6 +87,7 @@
     </div>
     <div class="lists">
       <div class="list">
+        <p>Muslim</p>
         <div class="set">
           <i class="fas fa-10x fa-mosque" style="color:{{color[0]}};"></i>
           {% for word in words[0] %}
@@ -94,13 +97,15 @@
       </div>
       <div class="list">
         <div class="set">
-          <i class="fas fa-10x fa-calculator" style="color:{{color[1]}};"></i>
+            <p>Hindu</p>
+          <i class="fab fa-10x fa-deskpro" style="color:{{color[1]}};"></i>
           {% for word in words[1] %}
           <p>{{word}}</p>
           {% endfor %}
         </div>
       </div>
       <div class="list">
+        <p>Vegetarian</p>
         <div class="set">
           <i class="fas fa-10x fa-carrot" style="color:{{color[2]}};"></i>
           {% for word in words[2] %}
@@ -111,4 +116,5 @@
     </div>
 </div>
 </body>
-</html>
+
+
