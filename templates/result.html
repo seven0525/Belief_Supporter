@@ -2,15 +2,15 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./static/style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
   <title>result</title>
 </head>
 
 <body>
-  <p>{{results}}</p>
+  <!-- <p>{{results}}</p>
   <p>{{ columns }}</p>
-  <p>{{ values }}</p>
+  <p>{{ values }}</p> -->
   <div class="main">
     <div class="graph">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
@@ -62,28 +62,28 @@
             }
           }
         }
-    });
+      });
 
-    Chart.plugins.register({
-    afterDatasetsDraw: function(chartInstance, easing) {
-        if (chartInstance.config.type == "doughnut") {
-            var ctx = chartInstance.chart.ctx;
-            var sum = "Nutrition"
-            ctx.fillStyle = 'black';
-            var fontSize = 60;
-            var fontStyle = 'normal';
-            var fontFamily = "Helvetica Neue";
-            ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
+      Chart.plugins.register({
+      afterDatasetsDraw: function(chartInstance, easing) {
+          if (chartInstance.config.type == "doughnut") {
+              var ctx = chartInstance.chart.ctx;
+              var sum = "Nutrition"
+              ctx.fillStyle = 'black';
+              var fontSize = 60;
+              var fontStyle = 'normal';
+              var fontFamily = "Helvetica Neue";
+              ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
 
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText(sum.toString(), 300, 290);
-        }
-    }
-});
-
-
-    </script>
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'middle';
+              ctx.fillText(sum.toString(), 480, 370);
+          }
+      }
+      });
+      </script>
+    </div>
+    <div class="lists">
       <div class="list">
         <div class="set">
           <i class="fas fa-10x fa-mosque" style="color:{{color[0]}};"></i>
@@ -109,6 +109,6 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
 </body>
 </html>

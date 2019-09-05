@@ -1,7 +1,13 @@
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../static/style_1.css">
+</head>
 
-<video id="myVideo" width=100% height=100% autoplay="1" ></video>
-<button onclick="copyFrame()">静止画取得</button>
-<canvas id="capture_image"></canvas>
+<body>
+<video id="myVideo" width=100% height=90% autoplay="1" ></video>
+<button class="button" onclick="copyFrame()" style="height:10%; width: 100%; font-size:3em; background-color: #fff;border-color: #59b1eb;
+color: #59b1eb;">Capture</button>
+<canvas id="capture_image" style="display:none"></canvas>
 
 <script type="text/javascript">
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || window.navigator.mozGetUserMedia;
@@ -43,10 +49,5 @@ function copyFrame() {
 }
 
 </script>
-
-
-<!-- <form method="post" action="/send" enctype="multipart/form-data">
-<input type="file" id="img_file" name="img_file" class="col-sm-4">
-<input type="submit" value="送信" class="btn">
-</form> -->
+</body>
 

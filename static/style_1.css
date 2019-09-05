@@ -1,0 +1,31 @@
+.button {
+    color: #fff;
+    position: relative;
+    z-index: 2;
+    background-color: #333;
+    border: 2px solid #333;
+    line-height: 50px;
+  }
+  .button:hover {
+    background-color: #fff;
+    border-color: #59b1eb;
+    color: #59b1eb;
+  }
+  .button::before,
+  .button::after {
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #333;
+  }
+  .button::before {
+    right: 0;
+  }
+  .button::after {
+    left: 0;
+  }
+  .button:hover::before,
+  .button:hover::after {
+    width: 0;
+    background-color: #59b1eb;
+  }

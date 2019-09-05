@@ -8,7 +8,8 @@
 .lists{
   height: 50%;
   padding-top: 50%;
-  vertical-align: middle
+  vertical-align: middle;
+  background-image: url("intersection.png")
 }
 .graph {
   height: 50%
@@ -17,12 +18,10 @@
   size: 50em
 }
 .main{
-  height: 100vh;
+  height: 100%;
   width: 100%
 }
-body {
-  background-image: url("intersection.png")
-}
+
 .header {
   text-align: center;
   font-size:xx-large;
