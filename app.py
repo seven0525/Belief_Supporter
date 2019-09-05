@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import os
 from flask import Flask, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
@@ -12,9 +13,7 @@ import extract_nutrition as extract_nutrition
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = './uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg','JPG'])
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def judge_arabia(string):
     taboo_list = ["豚","酒","アルコール","みりん","醤油",
