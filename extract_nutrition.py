@@ -32,14 +32,14 @@ def main(text_r):
         columns.append("lipid(g)")
         values.append(float_value)
     if "ナトリウム" in text_r:
-        string_value = re.findall('ナトリウム(.*)mg', text_r)
-        float_value = float(string_value[0].split("mg")[0])
-        columns.append("sodium(mg)")
+        string_value = re.findall('ナトリウム(.*)g', text_r)
+        float_value = float(string_value[0].split("g")[0])
+        columns.append("sodium(g)")
         values.append(float_value)
     if "カルシウム" in text_r:
-        string_value = re.findall('カルシウム(.*)mg', text_r)
-        float_value = float(string_value[0].split("mg")[0])
-        columns.append("calcium(mg)")
+        string_value = re.findall('カルシウム(.*)g', text_r)
+        float_value = float(string_value[0].split("g")[0])
+        columns.append("calcium(g)")
         values.append(float_value)
     if "食塩相当量" in text_r:
         string_value = re.findall('食塩相当量(.*)g', text_r)
