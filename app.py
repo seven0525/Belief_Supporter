@@ -7,7 +7,6 @@ from sys import argv
 import json
 import requests
 from io import BytesIO
-from PIL import Image
 import google_cva as google_cva
 import extract_nutrition as extract_nutrition
 
@@ -83,4 +82,5 @@ def send():
 
 if __name__ == '__main__':
     app.debug = True
-    app.run()
+    # app.run(host='0.0.0.0', ssl_context=('open_ssl/server.crt', 'open_ssl/server.key'), threaded=True, debug=True)
+    app.run(host='0.0.0.0', ssl_context=('open_ssl/server.crt', 'open_ssl/server.key'))

@@ -2,7 +2,6 @@ import base64
 import json
 from requests import Request, Session
 from io import BytesIO
-from PIL import Image
 
 #PILで開いた画像をbase64形式に変換します
 def pil_image_to_base64(pil_image):
