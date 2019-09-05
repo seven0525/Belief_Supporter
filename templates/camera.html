@@ -14,6 +14,25 @@ navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia 
 window.URL = window.URL || window.webkitURL;
 
 var video = document.getElementById('myVideo');
+
+// iOS用の処理
+var constraints = {
+    audio: false,
+    video: {
+            // スマホのバックカメラを使用
+            facingMode: 'environment'
+    }
+};
+//  カメラの映像を取得
+navigator.mediaDevices.getUserMedia(constraints)
+        .then((stream) => {
+            video.srcObject = stream;
+        })
+        .catch((err) => {
+            window.alert(err.name + ': ' + err.message);
+        });
+
+
 var localStream = null;
 navigator.getUserMedia({video: true, audio: false}, 
     function(stream) { // for success case
