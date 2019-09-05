@@ -39,11 +39,13 @@ def main(text_r):
         values.append(float_value)
     if "ナトリウム" in text_n:
         string_value = re.findall('ナトリウム(.*)g', text_n)
+        string_value = re.search(r'[0-9]+', string_value[0])
         float_value = float(string_value[0].split("g")[0])
         columns.append("sodium(g)")
         values.append(float_value)
     if "カルシウム" in text_n:
         string_value = re.findall('カルシウム(.*)g', text_n)
+        string_value = re.search(r'[0-9]+', string_value[0])
         float_value = float(string_value[0].split("g")[0])
         columns.append("calcium(g)")
         values.append(float_value)
