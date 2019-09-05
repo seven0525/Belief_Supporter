@@ -33,7 +33,7 @@ def judge_india(string):
     taboo_list = ["牛","ビーフ"]
     j = 0
     filtered_words = []
-    for i, word in taboo_list:
+    for word in taboo_list:
         if word in string:
             j += 1
             filtered_words.append(word)
@@ -46,7 +46,7 @@ def judge_vege(string):
     taboo_list = ["肉","ハム","ソーセージ","ベーコン","ミート","動物","海老"]
     j = 0
     filtered_words = []
-    for i, word in taboo_list:
+    for word in taboo_list:
         if word in string:
             j += 1
             filtered_words.append(word)
