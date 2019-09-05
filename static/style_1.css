@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
+ 
 .button {
     color: #fff;
     position: relative;
@@ -31,6 +33,7 @@
   }
 
   h1 {
+    font-family: 'Noto Serif JP', sans-serif;
     text-align: center;
     margin: 0;
     padding: 0.6em 2em 0.4em;

@@ -76,8 +76,6 @@ def send():
         results_color = [arabia_color, india_color, vege_color]
         words = [arabia_words, india_words, vege_words]
         columns, values = extract_nutrition.main(edited_text)
-        # columns = ["2","2","2","2"]
-        # values = [1,2,5,20]
         return render_template('result.html', color=results_color, words=words, results=texts, columns=columns, values=values)
 
 if __name__ == '__main__':

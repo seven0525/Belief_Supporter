@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
+ 
+
 body {
   background-color: #fff;
   color: #000;
@@ -10,6 +13,7 @@ body {
   color: #0000FF;
 }
 h1 {
+  font-family: 'Noto Serif JP', sans-serif;
   text-align: center;
   margin: 0;
   padding: 0.6em 2em 0.4em;
@@ -18,6 +22,11 @@ h1 {
   font-weight: normal;
   font-size: 4em;
   border-bottom: 2px solid #000;
+}
+
+p {
+  font-family: 'Noto Serif JP', sans-serif;
+  font-size: 30px
 }
 .content {
   padding: 1em 5em;
@@ -58,13 +67,6 @@ a:hover img {
   height: 100%;
   width: 100%
 }
-
-/* body{
-  margin: 0;
-  padding: 0;
-  display: block;
-} */
-
 html {
   display: block;
   color: -internal-root-color;
