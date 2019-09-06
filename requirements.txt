@@ -10,3 +10,4 @@ requests==2.22.0
 urllib3==1.25.3
 Werkzeug==0.15.6
 gunicorn==19.9.0
+googletrans=2.4.0
