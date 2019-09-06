@@ -10,9 +10,11 @@ import requests
 from io import BytesIO
 import google_cva as google_cva
 import extract_nutrition as extract_nutrition
+from googletrans import Translator
 
 app = Flask(__name__)
 
+translator = Translator()
 ALLOWED_EXTENSIONS = set(['png', 'jpg','JPG'])
 
 def judge_arabia(string):
@@ -23,11 +25,12 @@ def judge_arabia(string):
     for word in taboo_list:
         if word in string:
             j += 1
+            word = translator.translate(word)
             filtered_words.append(word)
     if j>=1:
         return "red", filtered_words
     else:
-        return "black", filtered_words
+        return "silver", filtered_words
 
 def judge_india(string):
     taboo_list = ["牛","ビーフ"]
@@ -35,12 +38,13 @@ def judge_india(string):
     filtered_words = []
     for word in taboo_list:
         if word in string:
+            word = translator.translate(word)
             j += 1
             filtered_words.append(word)
     if j>=1:
         return "red", filtered_words
     else:
-        return "black", filtered_words
+        return "silver", filtered_words
 
 def judge_vege(string):
     taboo_list = ["肉","ハム","ソーセージ","ベーコン","ミート","動物","海老"]
@@ -49,11 +53,12 @@ def judge_vege(string):
     for word in taboo_list:
         if word in string:
             j += 1
+            word = translator.translate(word)
             filtered_words.append(word)
     if j>=1:
         return "red", filtered_words
     else:
-        return "black", filtered_words
+        return "silver", filtered_words
 
 
 
