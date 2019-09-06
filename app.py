@@ -13,7 +13,6 @@ import extract_nutrition as extract_nutrition
 
 app = Flask(__name__)
 
-translator = Translator()
 ALLOWED_EXTENSIONS = set(['png', 'jpg','JPG'])
 
 def judge_arabia(string):
