@@ -10,7 +10,6 @@ import requests
 from io import BytesIO
 import google_cva as google_cva
 import extract_nutrition as extract_nutrition
-from googletrans import Translator
 
 app = Flask(__name__)
 
@@ -25,7 +24,7 @@ def judge_arabia(string):
     for word in taboo_list:
         if word in string:
             j += 1
-            word = translator.translate(word)
+            # word = translator.translate(word)
             filtered_words.append(word)
     if j>=1:
         return "red", filtered_words
@@ -38,7 +37,7 @@ def judge_india(string):
     filtered_words = []
     for word in taboo_list:
         if word in string:
-            word = translator.translate(word)
+            # word = translator.translate(word)
             j += 1
             filtered_words.append(word)
     if j>=1:
@@ -53,7 +52,7 @@ def judge_vege(string):
     for word in taboo_list:
         if word in string:
             j += 1
-            word = translator.translate(word)
+            # word = translator.translate(word)
             filtered_words.append(word)
     if j>=1:
         return "red", filtered_words
