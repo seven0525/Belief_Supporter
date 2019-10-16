@@ -74,16 +74,19 @@ def send():
     if request.method == 'POST':
         img_url_1 = request.form['image']
         img_url = img_url_1.split(",")[1]
-        texts =  google_cva.main(img_url)
-        print(texts)
-        edited_text = extract_nutrition.edit(texts)
-        arabia_color, arabia_words = judge_arabia(edited_text)
-        india_color, india_words = judge_india(edited_text)
-        vege_color, vege_words = judge_vege(edited_text)
-        results_color = [arabia_color, india_color, vege_color]
-        words = [arabia_words, india_words, vege_words]
-        columns, values = extract_nutrition.main(edited_text)
-        return render_template('result.html', color=results_color, words=words, results=texts, columns=columns, values=values)
+        try:
+            texts = "aaa"
+            texts =  google_cva.main(img_url)
+            print(texts)
+        except:
+            edited_text = extract_nutrition.edit(texts)
+            arabia_color, arabia_words = judge_arabia(edited_text)
+            india_color, india_words = judge_india(edited_text)
+            vege_color, vege_words = judge_vege(edited_text)
+            results_color = [arabia_color, india_color, vege_color]
+            words = [arabia_words, india_words, vege_words]
+            columns, values = extract_nutrition.main(edited_text)
+            return render_template('result.html', color=results_color, words=words, results=texts, columns=columns, values=values)
 
 if __name__ == '__main__':
     app.debug = True
